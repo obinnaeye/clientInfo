@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/obinnaeye/clientInfo/issues"
   },
-  "homepage": "https://github.com/obinnaeye/clientInfo#readme"
+  "homepage": "https://github.com/obinnaeye/clientInfo#readme",
+  "dependencies": {
+    "express-useragent": "^1.0.4"
+  }
 }
