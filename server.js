@@ -12,7 +12,7 @@ app.get(["/", "/whoami"], function (req, res) {
   var jsonData = {
       ipaddress: req.headers['x-forwarded-for'],
       language:  req.headers["accept-language"].slice(0, 5),
-      software: agent.toString()
+      softwaress: agent.toString()
   }
     
   res.send(jsonData);
