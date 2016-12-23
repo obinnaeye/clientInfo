@@ -1,16 +1,19 @@
-const express = require('express');
-const app = express();
+var express = require('express');
+var app = express();
+var useragent = require('useragent');
+
 
 
 app.enable('trust proxy');
 
-app.get('/' || "/whoami", function (req, res) {
-  const clientIP = req.ip.slice(7);
-  const jsonData = {
-      ipaddress: req.headers['x-forwarded-for'],
-      info: req.headers['user-agent']
-  }
+app.get(["/", "/whoami"], function (req, res) {
+  var agent = useragent.parse(req.headers['user-agent']);
   
+  var jsonData = {
+      ipaddress: req.headers['x-forwarded-for'],
+      language:  req.headers["accept-language"].slice(0, 5),
+      software: agent.toString()
+  }
     
   res.send(jsonData);
 });
